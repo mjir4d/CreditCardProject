@@ -12,24 +12,20 @@ import org.junit.Test;
  *
  * @author Matthew
  */
-public class Person {
+class SimpleInterest {
     
     //Global variables
-    private final double visarate = .1;
-    private final double discoverrate = .05;
-    private final double mastercardrate = .01;
-    double initialbalance = 0;
-    double finalinterest = 0;
-    public int numwallets;
-    public int numcards;
+    protected double initialbalance = 0;
+    protected double finalinterest = 0;
+    protected int numwallets;
+    protected int numcards;
     
     //recieves list from PersonTest, This is all the cards used
     ArrayList<String> walletofcards = new ArrayList<>();
     
-       
     @Test
-    //public void simpleinteresttest(int numwallets, int numcards, String cardnames, double initialbalance) {
-    public void simpleinteresttest(int numwallets, int numcards, ArrayList<String> walletofcards, double initialbalance) {
+    protected void simpleinteresttest(int numwallets, int numcards, ArrayList<String> walletofcards, double initialbalance) {
+        
         //local variables
         int i;
         int j = 1;
@@ -64,10 +60,10 @@ public class Person {
                         }
                         else {
                             //Grabs cardrate based on Arraylist entry
-                            selectedcardrate = findselectedcard(walletofcards.get(k));
+                            selectedcardrate = FindCard.findselectedcard(walletofcards.get(k));
                       
                             //Calculates simple interest and prints
-                            finalinterest = simpleinterestcalc(selectedcardrate, initialbalance);
+                            finalinterest = InterestCalc.simpleinterestcalc(selectedcardrate, initialbalance);
                         
                         
                                 System.out.println(walletofcards.get(k) + " simple interest is $" + finalinterest);
@@ -97,10 +93,10 @@ public class Person {
             for (k = 0; k < numcards; k++) {
                 
                 //Grabs cardrate based on Arraylist entry
-                selectedcardrate = findselectedcard(walletofcards.get(k));
+                selectedcardrate = FindCard.findselectedcard(walletofcards.get(k));
                       
                 //Calculates simple interest and prints
-                finalinterest = simpleinterestcalc(selectedcardrate, initialbalance);
+                finalinterest = InterestCalc.simpleinterestcalc(selectedcardrate, initialbalance);
                 System.out.println(walletofcards.get(k) + " simple interest is $" + finalinterest);
                 
                 totalpersoninterest = finalinterest + totalpersoninterest;
@@ -111,44 +107,7 @@ public class Person {
             
         }
         
-        
     }
-    
-     
-    
-    //Identify a cardname from Arraylist and return its rate
-    public double findselectedcard(String cardname) {
-        double returncardrate = 0;    
-        
-        switch (cardname) {
-            case "Visa":
-                returncardrate = visarate;
-                break;
-            case "Discover":
-                returncardrate = discoverrate;
-                break;
-            case "Mastercard":
-                returncardrate = mastercardrate;
-                break;
-            case "END":
-                break;
-            default:
-                System.out.println("Input card type cannot be found");
-                break;
-        }
-    
-        return returncardrate;
-    }
-    
-    
-    //Simple interest calculation
-    private double simpleinterestcalc(double selectedcardrate, double initialbalance) {
-        
-        finalinterest = selectedcardrate * initialbalance;
-        return finalinterest;
-        
-    }
-    
-   
-    
 }
+        
+      

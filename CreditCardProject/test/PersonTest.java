@@ -18,7 +18,7 @@ public class PersonTest {
     
     System.out.println("---------------Test 1---------------");
       
-    Person tester = new Person();
+    SimpleInterest tester = new SimpleInterest();
     
     //String arraylist of cards for testing
     ArrayList<String> walletofcards = new ArrayList<>();
@@ -38,7 +38,7 @@ public class PersonTest {
     System.out.println();
     System.out.println("---------------Test 2---------------");
     
-    Person tester = new Person();
+    SimpleInterest tester = new SimpleInterest();
     
     //String arraylist of cards for testing
     ArrayList<String> walletofcards = new ArrayList<>();
@@ -59,7 +59,7 @@ public class PersonTest {
     System.out.println();
     System.out.println("---------------Test 3---------------");
     
-    Person tester = new Person();
+    SimpleInterest tester = new SimpleInterest();
     
 //Person 2
     System.out.println("Person 1");
